@@ -1,22 +1,177 @@
+body {
+    -moz-box-shadow: inset 0 0 50px #000000;
+    -webkit-box-shadow: inset 0 0 50px #000000;
+    box-shadow: inset 0 0 50px #000000;
+}
+
 .App {
-  text-align: center;
+    text-align: center;
 }
 
 .App-logo {
-  height: 40vmin;
+    height: 40vmin;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
 }
 
 .App-link {
-  color: #09d3ac;
+    color: #09d3ac;
+}
+
+h1 {
+    color: #0069ed;
+    margin: 2rem;
+    transition: 1000ms;
+}
+
+h1:hover {
+    color: #0ce053;
+    transition: 1000ms;
+}
+
+button {
+    display: inline-block;
+    border: none;
+    padding: 1rem 2rem;
+    margin: 0;
+    text-decoration: none;
+    background: #0069ed;
+    color: #ffffff;
+    font-family: sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    transition: background 1000ms ease-in-out, transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin: 2rem;
+}
+
+button:hover,
+button:focus {
+    background: #0ce053;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    box-shadow: 0px 0 20px rgba(0, 0, 0, 1.0);
+    z-index: 100;
+}
+
+
+/* Diagonal stacked paper effect */
+
+.paper {
+    background-color: #fff;
+    /* Need position to allow stacking of pseudo-elements */
+    position: relative;
+    /* Padding for demo purposes */
+    padding: 30px;
+}
+
+.paper,
+.paper::before,
+.paper::after {
+    /* Add shadow to distinguish sheets from one another */
+    box-shadow: 2px 1px 1px rgba(0, 0, 0, 0.15);
+}
+
+.paper::before,
+.paper::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #eee;
+}
+
+
+/* Second sheet of paper */
+
+.paper::before {
+    left: 7px;
+    top: 5px;
+    z-index: -1;
+}
+
+
+/* Third sheet of paper */
+
+.paper::after {
+    left: 12px;
+    top: 10px;
+    z-index: -2;
+}
+
+
+/*ribbon*/
+
+.ribbon {
+    font-size: 27px !important;
+    /* This ribbon is based on a 16px font side and a 24px vertical rhythm. I've used em's to position each element for scalability. If you want to use a different font size you may have to play with the position of the ribbon elements */
+    width: 50%;
+    position: relative;
+    background: #ba89b6;
+    color: #fff;
+    text-align: center;
+    padding: 1em 2em;
+    /* Adjust to suit */
+    margin: 0.5em auto 2.5em;
+    /* Based on 24px vertical rhythm. 48px bottom margin - normally 24 but the ribbon 'graphics' take up 24px themselves so we double it. */
+}
+
+.ribbon:before,
+.ribbon:after {
+    content: "";
+    position: absolute;
+    display: block;
+    bottom: -1em;
+    border: 1.5em solid #986794;
+    z-index: -1;
+}
+
+.ribbon:before {
+    left: -2em;
+    border-right-width: 1.5em;
+    border-left-color: transparent;
+}
+
+.ribbon:after {
+    right: -2em;
+    border-left-width: 1.5em;
+    border-right-color: transparent;
+}
+
+.ribbon .ribbon-content:before,
+.ribbon .ribbon-content:after {
+    content: "";
+    position: absolute;
+    display: block;
+    border-style: solid;
+    border-color: #804f7c transparent transparent transparent;
+    bottom: -1em;
+}
+
+.ribbon .ribbon-content:before {
+    left: 0;
+    border-width: 1em 0 0 1em;
+}
+
+.ribbon .ribbon-content:after {
+    right: 0;
+    border-width: 1em 1em 0 0;
 }
