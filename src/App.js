@@ -60,7 +60,7 @@ class App extends React.Component {
       );
     } else {
       return (
-        <div><h1 style={{ color: "red" }}>Loading......</h1></div>
+        <div><h3 style={{ color: "red" }}>Loading......</h3></div>
       )
     }
   }
